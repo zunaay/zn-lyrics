@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/24760464c6.js" crossorigin="anonymous"></script>
+    <script src="js/lyrics.js"></script>
+    <script src="js/common.js"></script>
+    <link rel="stylesheet" href="styles/index.css">
+    <title>j u s t • l y r i c s</title>
+</head>
+<body class="lyrics-page">
+    <div id="main-wrapper">
+        <div id="header">
+            <h1>j u s t • l y r i c s</h1>
+        </div>
+        
+        <div id="nav">
+            <ul>
+                <a href="index"><li id="home">HOME</li></a>
+                <a href="search"><li id="list">Archivos</li></a>
+                <a href="random"><li id="random">RANDOM</li></a>
+            </ul>
+            <form onsubmit="return false;">
+                <input id="search-input" type="text" value="" placeholder="Buscar...">
+                <input id="search-btn" type="submit" value="">
+            </form>
+        </div>
+
+        <div id="lyrics-container">
+            <div id="general-info">
+                <h2>Info</h2>
+                <div id="cover-container">
+                    <img src="">
+                </div>
+                <div id="info-container">
+                    <span><i title="Nombre" class="fa-solid fa-music"></i></span>
+                    <span><i title="Artista" class="fa-solid fa-user"></i></span>
+                    <span><i title="Álbum" class="fa-solid fa-compact-disc"></i></span>
+                    <span><i title="Año" class="fa-solid fa-calendar-days"></i></span>
+                </div>
+            </div>
+
+            <div id="main-lyrics">
+                <h2>Letra</h2>
+                <pre></pre>
+            </div>
+        </div>
+
+        
+
+    </div>
+</body>
+</html>
