@@ -83,21 +83,26 @@ function checkSearch(search) {
 
                     // Comprobar si el archivo existe
 
-
-                    jQuery.ajaxSetup({async:false});
+                    if ((window.location.href).includes("127.0.0")) {
+                        // Local 
+                        jQuery.ajaxSetup({async:false});
                     
-                    var existe = $.get(src).done(function() {
+                        var existe = $.get(src).done(function() {
+                            // Insertar link
+                            $('.album-carousel').eq(a).find('.tracklist').eq(d).append('<a href="' + url + '"><li class="track">' + track + '</li></a>');
+                        })
+                
+                        .fail(function(){
+                            // No insertar link
+                            $('.album-carousel').eq(a).find('.tracklist').eq(d).append('<li class="track">' + track + '</li>');
+                        });
+
+                    } else {
+
                         // Insertar link
                         $('.album-carousel').eq(a).find('.tracklist').eq(d).append('<a href="' + url + '"><li class="track">' + track + '</li></a>');
-                    })
-            
-                    .fail(function(){
-                        // No insertar link
-                        $('.album-carousel').eq(a).find('.tracklist').eq(d).append('<li class="track">' + track + '</li>');
-                    });
-                }
-
-                
+                    };
+                };                
             };
         };
     };
