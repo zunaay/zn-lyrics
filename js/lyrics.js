@@ -94,3 +94,24 @@ function showLyrics(artist, song) {
         alert("La canción no existe!");
     };
 };
+
+$(function() {
+    $("#show-info").click(function() {
+        var clase = $(this).attr("class");
+        if (clase == "disabled") {
+            // habilitar
+            $("#show-info i").css("transform", "rotate(360deg)");
+            $(this).attr("class", "enabled");
+            $("#general-info").css("transform", "translateX(0)");
+            $("body").css("overflow", "hidden");
+
+
+        } else {
+            // desabilitar
+            $("#show-info i").css("transform", "rotate(45deg)");
+            $(this).attr("class", "disabled");
+            $("#general-info").css("transform", "translateX(-150%)");
+            $("body").css("overflow", "auto");
+        }
+    });
+})

@@ -21,7 +21,7 @@ function checkSearch(search) {
 
 
         // Cargar todo
-        if ((window.location.href).includes("127.0.0.1")) {
+        if ((window.location.href).includes("127.0.0.1") || (window.location.href).includes("192.168")) {
             history.replaceState(null, "", "search.html");
         } else {
             history.replaceState(null, "", "search");
@@ -83,7 +83,7 @@ function checkSearch(search) {
 
                     // Comprobar si el archivo existe
 
-                    if ((window.location.href).includes("127.0.0")) {
+                    if ((window.location.href).includes("127.0.0") || (window.location.href).includes("192.168")) {
                         // Local 
                         jQuery.ajaxSetup({async:false});
                     

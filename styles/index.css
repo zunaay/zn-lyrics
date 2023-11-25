@@ -177,6 +177,29 @@ form {
     margin: 10px;
 }
 
+#show-info {
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin: auto;
+    width: 50px;
+    padding: 10px;
+    background-color: var(--st-color);
+    border-radius: 10px 10px 0 0;
+    color: var(--nd-color);
+    font-weight: bold;
+    z-index: 103;
+    cursor: pointer;
+    user-select: none;
+}
+
+#show-info i {
+    transform: rotate(45deg);
+    transition: 300ms;
+}
+
 #general-info {
     width: 410px;
     position: fixed;
@@ -300,4 +323,154 @@ a .track:hover {
     transform: scale(110%);
     font-weight: bold;
     background-color: #0007;
+}
+
+/* r e s p o n s i v e */
+
+@media only screen and (max-width: 830px) {
+    #nav {
+        top: 74px;
+        margin: 0;
+        width: 100%;
+        text-align: center;
+        right: auto;
+    }
+
+    #header {
+        height: 125px;
+    }
+
+    #header h1 {
+        width: 100%;
+        left: auto;
+        float: none;
+        text-align: center;
+    }
+
+    #main-container, #lyrics-container {
+        top: 124px;
+    }
+
+    /* mobile search */
+    .album-container {
+        display: table;
+        float: left;
+        margin: auto;
+        max-width: 33%;
+        min-width: 33%;
+    }
+
+    .tracklist {
+        width: 88%;
+        margin: auto;
+    }
+
+    /* mobile lyrics */
+    #general-info {
+        width: 30%;
+    }
+
+    #main-lyrics {
+        left: 40%;
+        width: 60%;
+        word-break: break-word;
+    }
+
+    #main-lyrics pre {
+        white-space: break-spaces;
+    }
+
+    #cover-container {
+        float: none;
+    }
+
+}
+
+@media only screen and (max-width: 760px) {
+    /* mobile search */ 
+    .album-container {
+        max-width: 49%;
+        min-width: 49%;
+    }
+
+    .track {
+        font-weight: normal;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    /* mobile search */ 
+    .album-container {
+        max-width: 100%;
+        min-width: 100%;
+    }
+
+    /* mobile lyrics */ 
+    #general-info {
+        min-width: 80%;
+        left: 10px;
+        right: 10px;
+        display: block;
+        background-color: #000d;
+        z-index: 102;
+        border: 1px solid;
+        box-shadow: 0px 0px 10px #fff;
+        padding: 0 50px 10px;
+        margin: auto;
+        position: fixed;
+        overflow-y: scroll;
+        max-height: 300px;
+        bottom: 30px;
+        top: 30px;
+
+        transform: translateX(-150%);
+        transition: 700ms;
+    }
+
+    #cover-container {
+        float: left;
+    }
+
+    #main-lyrics {
+        left: 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    #main-lyrics pre {
+        margin-bottom: 40px;
+    }
+
+    #show-info {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    /* mobile lyrics */
+    #general-info {
+        max-height: 420px;
+    }
+
+    #cover-container {
+        float: none;
+        margin: auto;
+    }
+
+}
+
+@media only screen and (max-width: 450px) {
+    /* mobile search */ 
+    #nav ul a:nth-child(1) {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    /* mobile lyrics */
+    #general-info {
+        max-height: 420px;
+        padding: 0 30px 10px;
+    }
+
 }
