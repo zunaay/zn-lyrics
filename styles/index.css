@@ -178,6 +178,7 @@ form {
 }
 
 #show-info {
+    display: none ;
     position: fixed;
     bottom: 0px;
     left: 0;
