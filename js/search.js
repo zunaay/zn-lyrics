@@ -64,7 +64,7 @@ function checkSearch(search) {
             for (d = 0; d < tempData[a].album.length; d++) {
                 let cover = tempData[a].album[d].cover;
                 let album = tempData[a].album[d].name;
-                let year = tempData[a].album[d].year;
+                let year = (tempData[a].album[d].year).slice(0, 4);
 
                 $('.album-carousel').eq(a).append('<div class="album-container"><div>');
                 $('.album-carousel').eq(a).find('.album-container').eq(d).append('<div class="album-info"></div><ul class="tracklist"></ul>');

@@ -1,6 +1,6 @@
 [
     {"id":"STA", "band":"Saint Asonia", "album":[
-        {"name":"Saint Asonia", "year":"2015", "cover":"https://i.scdn.co/image/ab67616d0000b273f46aee5405694e957804003f", "tracklist":[
+        {"name":"Saint Asonia", "year":"20150715", "cover":"https://i.scdn.co/image/ab67616d0000b273f46aee5405694e957804003f", "tracklist":[
             {"id":1, "name":"Better Place", "src":"data/files/sta_betterplace.txt"},
             {"id":2, "name":"Blow Me Wide Open", "src":"data/files/sta_blowmewideopen.txt"},
             {"id":3, "name":"Let Me live My Life", "src":"data/files/sta_letmelivemylife.txt"},
@@ -13,7 +13,7 @@
             {"id":10, "name":"Happy Tragedy", "src":"data/files/sta_happytragedy.txt"},
             {"id":11, "name":"Leaving Minnesota", "src":"data/files/sta_leavingminnesota.txt"}
         ]},
-        {"name":"Flawed Design", "year":"2019", "cover":"https://i.scdn.co/image/ab67616d0000b2735e53ae063bd0e2fd0455b055", "tracklist":[
+        {"name":"Flawed Design", "year":"20191025", "cover":"https://i.scdn.co/image/ab67616d0000b2735e53ae063bd0e2fd0455b055", "tracklist":[
             {"id":1, "name":"Blind", "src":"data/files/sta_blind.txt"},
             {"id":2, "name":"Sirens", "src":"data/files/sta_sirens.txt"},
             {"id":3, "name":"This August Day", "src":"data/files/sta_thisaugustday.txt"},
@@ -28,7 +28,7 @@
             {"id":12, "name":"Say Goodbye", "src":"data/files/sta_saygoodbye.txt"},
             {"id":13, "name":"Weak & Tired", "src":"data/files/sta_weaktired.txt"}
         ]},
-        {"name":"Introvert", "year":"2022", "cover":"https://i.scdn.co/image/ab67616d0000b273bc076bcf156b4336517743b3", "tracklist":[
+        {"name":"Introvert", "year":"20220107", "cover":"https://i.scdn.co/image/ab67616d0000b273bc076bcf156b4336517743b3", "tracklist":[
             {"id":1, "name":"Above It All", "src":"data/files/sta_aboveitall.txt"},
             {"id":2, "name":"Better Late Than Never", "src":"data/files/sta_betterlatethannever.txt"},
             {"id":3, "name":"Chew Me Up", "src":"data/files/sta_chewmeup.txt"},
@@ -37,7 +37,7 @@
             {"id":6, "name":"Bite The Bullet", "src":"data/files/sta_bitethebullet.txt"},
             {"id":7, "name":"Blinding Lights", "src":"data/files/sta_blindinglights.txt"}
         ]},
-        {"name":"Extrovert", "year":"2022", "cover":"https://i.scdn.co/image/ab67616d0000b2734873c7f89977583074800eb0", "tracklist":[
+        {"name":"Extrovert", "year":"20221118", "cover":"https://i.scdn.co/image/ab67616d0000b2734873c7f89977583074800eb0", "tracklist":[
             {"id":1, "name":"Devastate", "src":"data/files/sta_devastate.txt"},
             {"id":2, "name":"Break the Mold", "src":"data/files/sta_breakthemold.txt"},
             {"id":3, "name":"Over It", "src":"data/files/sta_overit.txt"},

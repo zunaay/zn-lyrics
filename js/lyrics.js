@@ -66,7 +66,7 @@ function showLyrics(artist, song) {
             tempTrack = tempArtist[0].album[i].tracklist.filter(v => (v.src).includes(fullName));
             if (tempTrack.length >= 1) {
                 album = tempArtist[0].album[i].name;
-                anio = tempArtist[0].album[i].year;
+                anio = (tempArtist[0].album[i].year).slice(0, 4);
                 cover = tempArtist[0].album[i].cover;
                 cancion = tempTrack[0].name;
 
