@@ -112,6 +112,16 @@ $(function() {
             $(this).attr("class", "disabled");
             $("#general-info").css("transform", "translateX(-150%)");
             $("body").css("overflow", "auto");
-        }
+        };
     });
+
+
+    $(window).resize(function() {
+        var ancho = $(this).width();
+        if (ancho > 640) {
+            $("#general-info").removeAttr("style");
+        }
+    })
+
 })
+

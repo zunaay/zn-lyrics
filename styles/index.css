@@ -204,6 +204,8 @@ form {
 #general-info {
     width: 410px;
     position: fixed;
+    display: block;
+    transform: translateX(0);
 }
 
 #cover-container, #cover-container img {
