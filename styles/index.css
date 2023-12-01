@@ -58,6 +58,7 @@ body.lyrics-page {
     background-size: cover;
     background-attachment: fixed;
     background-blend-mode: luminosity;
+    background-position: center 50px;
 }
 
 #main-wrapper {
