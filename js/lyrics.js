@@ -80,10 +80,10 @@ function showLyrics(artist, song) {
 
         $("title").html(cancion + " - " + artista + " | j u s t • l y r i c s");
         $("#cover-container img").attr("src", cover);
-        $("#info-container span").eq(0).append(cancion);
-        $("#info-container span").eq(1).append(artista);
-        $("#info-container span").eq(2).append(album);
-        $("#info-container span").eq(3).append(anio);
+        $("#info-container .track-info").eq(0).append(cancion);
+        $("#info-container .track-info").eq(1).append(artista);
+        $("#info-container .track-info").eq(2).append(album);
+        $("#info-container .track-info").eq(3).append(anio);
 
         // Cargar letra
         $.get('data/files/' + fullName, function(txt) {

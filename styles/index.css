@@ -232,7 +232,7 @@ form {
     
 }
 
-#info-container span {
+#info-container .track-info {
     line-height: 1.5em;
     display: inline-block;
     width: 100%;
