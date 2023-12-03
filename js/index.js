@@ -8,6 +8,8 @@ var images = [
 
 $(document).ready(function() {
     $("body").css("background-image", "url(" + images[getRandomInt(0,images.length)] + ")" );
+
+    //if((window.location.href).includes("index") ) window.location.href = (window.location.href).replace("index", "search");
 });
 
 function getRandomInt(min, max) {

@@ -1,111 +1,208 @@
-var data = [];
-
 $(document).ready(function() {
-    const requestDB = new XMLHttpRequest();requestDB.open("GET", "data/db.json");
-    requestDB.responseType = "json";requestDB.send();requestDB.onload = function() {
-        data = requestDB.response;
-        checkSearch((window.location.search));
-    };
+    $.get("data/artist.json", artist => {
+        $.get("data/music.json", song => {
+            $("body").css("background-image", "url(" + artist[0].cover + ")");
+            var filtro = checkSearch(window.location.search, artist);
+            drawContent(filtro, artist, song);
+        });
+    });
 });
 
-function checkSearch(search) {
+/* SEARCH
+?q=general
+OVERVIEW - MUESTRA ALBUM MAS RECIENTE DE ALGUNAS BANDAS (?
 
-    if (search.includes("artist")) {
-        // Mostrar lista de artistas ?
+?artist=ID
+MUESTRA TODO DEL ARTISTA
 
-        
-    } else if (search.includes("album")) {
-        // Mostrar album ?
+?q=songlist
+TODAS LAS CANCIONES DISPONIBLES EN ORDEN ALFABETICO
+*/
 
-    } else {
+function checkSearch(search, artist) {
+    if (search == "?q=general" || search == "?q=songlist" || search == "?q=artist") {
+        return (search.slice(3));
 
-
-        // Cargar todo
-        if ((window.location.href).includes("127.0.0.1") || (window.location.href).includes("192.168")) {
-            history.replaceState(null, "", "search.html");
-        } else {
-            history.replaceState(null, "", "search");
+    } else if (search.includes("?artist=")) {
+        // obtener id de artista
+        if (search.includes("&")) {
+            search = search.split ("&");
+            search = search[0];
         };
+        var a = search.split("=")[1].toUpperCase();
 
-        // Crear temporal
-	    var tempData = [];
-	    for (x = 0; x < data.length; x++) {tempData.push(data[x])};
-
-        // Ordena bandas alfabéticamente
-        tempData.sort((a, b) => {
-            const nameA = a.band.toUpperCase();
-            const nameB = b.band.toUpperCase();
-            if (nameA < nameB) { return -1; }
-            if (nameA > nameB) { return 1; }
-            return 0; // iguales
-        });
-
-        for (i = 0; i < tempData.length; i++) {
-            // Ordenar álbumes de más recientes a más antiguos
-            tempData[i].album.sort((a, b) => {
-                const nameA = a.year;
-                const nameB = b.year;
-                if (nameA > nameB) { return -1; }
-                if (nameA < nameB) { return 1; }
-                return 1; // iguales (debe retornar el ultimo)
-            });        
-        };
-
-
-        // Dibujar ?
-        $("#main-container").html("");
-        for (a = 0; a < tempData.length; a++) {
-
-            $("#main-container").append('<div class="artist-container"></div>');
-            $(".artist-container").eq(a).append('<h2 class="artist-name">' + tempData[a].band + '</h2>');
-            $(".artist-container").eq(a).append('<div class="album-carousel"></div>');
-
-
-            for (d = 0; d < tempData[a].album.length; d++) {
-                let cover = tempData[a].album[d].cover;
-                let album = tempData[a].album[d].name;
-                let year = (tempData[a].album[d].year).slice(0, 4);
-
-                $('.album-carousel').eq(a).append('<div class="album-container"><div>');
-                $('.album-carousel').eq(a).find('.album-container').eq(d).append('<div class="album-info"></div><ul class="tracklist"></ul>');
-                
-                $('.album-carousel').eq(a).find('.album-info').eq(d).append('<img src="' + cover + '">');
-                $('.album-carousel').eq(a).find('.album-info').eq(d).append('<div class="album-name">' + album + '</div>');
-                $('.album-carousel').eq(a).find('.album-info').eq(d).append('<div class="album-year">' + year + '</div>');
-
-
-                for (t = 0; t < tempData[a].album[d].tracklist.length; t++) {
-                    let track = tempData[a].album[d].tracklist[t].name;
-                    let src = tempData[a].album[d].tracklist[t].src;
-                    let url = (window.location.href).includes("html") ? "lyrics.html" : "lyrics";
-                    let filename = src.replace("data/files/","").replace(".txt","").replace((tempData[a].id).toLowerCase() + "_", "");
-                    url += "?a=" + (tempData[a].id).toLowerCase() + "&s=" + filename;
-
-                    // Comprobar si el archivo existe
-
-                    if ((window.location.href).includes("127.0.0") || (window.location.href).includes("192.168")) {
-                        // Local 
-                        jQuery.ajaxSetup({async:false});
-                    
-                        var existe = $.get(src).done(function() {
-                            // Insertar link
-                            $('.album-carousel').eq(a).find('.tracklist').eq(d).append('<a href="' + url + '"><li class="track">' + track + '</li></a>');
-                        })
-                
-                        .fail(function(){
-                            // No insertar link
-                            $('.album-carousel').eq(a).find('.tracklist').eq(d).append('<li class="track">' + track + '</li>');
-                        });
-
-                    } else {
-
-                        // Insertar link
-                        $('.album-carousel').eq(a).find('.tracklist').eq(d).append('<a href="' + url + '"><li class="track">' + track + '</li></a>');
-                    };
-                };                
-            };
+        // buscar si el artista existe
+        var check = artist.filter(v => {return v.id == a});
+        if (check.length != 0) {
+            return a;
         };
     };
+
+    // Si llega hasta aqui hay un error, reiniciar
+    window.location.search = "?q=songlist";
+};
+
+function drawContent(q, artist, song) {
+    $("#main-container").html("");
+    var base = (window.location.href).replace(window.location.search, "");
+    
+    if (q == "general") {
+        // Overview
+        $("#main-container").append('<div class="artist-container"></div>');
+        $(".artist-container")
+            .append('<h2 class="artist-title">Últimos lanzamientos</h2>')
+            .append('<div class="album-carousel"></div>');
+
+        var listedArtists = "", albumN = 0;
+        for (i = 0; i < artist.length; i++) {
+            if (!listedArtists.includes(artist[i].name)) {
+                listedArtists += artist[i].name; // Añadir artista a la lista
+
+                let artista = artist[i].name;
+                let id = artist[i].id;
+                let album = artist[i].album;
+                let cover = artist[i].cover;
+                let anio = (artist[i].date).slice(0,4);
+
+                $('.album-carousel').append('<div class="album-container"></div>');
+                    
+                $('.album-container').eq(albumN)
+                    .append('<h3 class="artist-name"></h3>')
+                    .append('<div class="album-info"></div>')
+                    .append('<ul class="tracklist"></ul>');
+
+                $('.artist-name').eq(albumN).append('<a href="' + base + '?artist=' + id.toLowerCase() + '" class="artist-link">' + artista + '</a>')
+                
+                $('.album-info').eq(albumN)
+                    .append('<img src="' + cover + '">')
+                    .append('<div class="album-name">' + album + '</div>')
+                    .append('<div class="album-year">' + anio + '</div>');
+
+                // Obtener tracklist
+                let albumID = id + "-" + artist[i].date; + "-";
+                var tracklist = song.filter(v => {return v.id.includes(albumID)});
+
+                drawTracklist(tracklist, base, albumN);
+
+                albumN++;
+            };
+        };
+
+    } else if (q == "artist") {
+        // Lista de artistas
+    
+    } else if (q == "songlist") {
+        // Lista de canciones
+        $("body").css("background-image", "url(" + artist[0].cover + ")"); // Custom bg
+        
+        // Obtener y ordenar artistas
+        var artistArray = [];
+        for (a = 0; a < artist.length; a++) { artistArray.push(artist[a].name); };
+        artistArray = unique(artistArray);
+        artistArray.sort();
+
+        var d = 0;
+        for (a = 0; a < artistArray.length; a++) {
+            var artistID = artist.filter(v => {return v.name == artistArray[a]})[0].id;
+
+            // Obtener y ordenar canciones disponibles
+            var track = song.filter(v => {return v.src != "" && (v.id).split("-")[0] == artistID});
+
+            
+            if (track.length > 0) {
+                track.sort((a, b) => {
+                    const nameA = a.name.toUpperCase();
+                    const nameB = b.name.toUpperCase();
+                    if (nameA < nameB) { return -1; }
+                    if (nameA > nameB) { return 1; }
+                    return 0;
+                });
+
+                $("#main-container").append('<div class="artist-container"></div>');
+                $(".artist-container").eq(d)
+                .append('<h2 class="artist-title">' + artistArray[a] + '</h2>')
+                .append('<div class="songlist"></div>');
+
+                for (s = 0; s < track.length; s++) {
+                    var trackArtist = track[s].id.split("-")[0];
+                   
+                    if (trackArtist == artistID) {
+                        var href = "?a=" + artistID.toLowerCase() + "&s=" + (track[s].src).split("_")[1].replace(".txt", "");
+                        var enlace = base.replace("search", "lyrics") + href;
+    
+                        $(".songlist").eq(d).append('<a class="sl-name" href="' + enlace +'"><span> ' + track[s].name + ' </span></a>');
+    
+                    };
+                };
+                d++;
+            }
+
+
+            
+
+        };
+
+    } else {
+        // Filtrar por artista
+        var artista = artist.filter(v => {return v.id == q.toUpperCase()});
+        $("body").css("background-image", "url(" + artista[0].cover + ")"); // Custom bg
+
+        $("#main-container").append('<div class="artist-container"></div>');
+        $(".artist-container")
+            .append('<h2 class="artist-title">' + artista[0].name + '</h2>')
+            .append('<div class="album-carousel"></div>');
+
+        for (a = 0; a < artista.length; a++) {
+            let id = artista[a].id;
+            let cover = artista[a].cover;
+            let album = artista[a].album;
+            let anio = (artista[a].date).slice(0,4);
+
+            $('.album-carousel').append('<div class="album-container"><div>')
+            $('.album-container').eq(a)
+                .append('<div class="album-info"></div>')
+                .append('<ul class="tracklist"></ul>');
+
+            $('.album-info').eq(a)
+                .append('<img src="' + cover + '">')
+                .append('<div class="album-name">' + album + '</div>')
+                .append('<div class="album-year">' + anio + '</div>');
+
+            // Obtener tracklist
+            let albumID = id + "-" + artista[a].date; + "-";
+            var tracklist = song.filter(v => {return v.id.includes(albumID)});
+
+            drawTracklist(tracklist, base, a);
+        }
+    };
+};
+
+function drawTracklist(tracklist, base, i) {
+
+    for (t = 0; t < tracklist.length; t++) {
+        var enlace = (base).replace("/search", "/lyrics");
+        let track = tracklist[t].name;
+        let src = tracklist[t].src;
+
+        // Comprobar si el archivo existe 
+        if (src != "") {
+            // Existe
+            enlace += '?a=' + src.split("_")[0].replace("data/files/", "") + '&s=' + src.split("_")[1].replace(".txt", "");
+            $('.tracklist').eq(i).append('<a href="' + enlace + '"><li class="track">' + track + '</li></a>');
+        } else {
+            // No existe
+            $('.tracklist').eq(i).append('<li class="track">' + track + '</li>');
+        }
+    };
+
+};
+
+function unique(list) {
+    var result = [];
+    $.each(list, function(i, e) {
+      if ($.inArray(e, result) == -1) result.push(e);
+    });
+    return result;
 };
 
 $(function() {

@@ -245,6 +245,15 @@ form {
     width: 20px;
 }
 
+#info-container .track-info a {
+    color: inherit;
+    transition: 300ms;
+}
+
+#info-container .track-info a:hover {
+    color: var(--st-color);
+}
+
 #main-lyrics {
     left: 440px;
     position: relative;
@@ -270,12 +279,13 @@ form {
     padding: 10px 50px;
 }
 
-.artist-name {
+.artist-title {
     font-size: 30px;
 }
 
 .album-carousel {
     display: table;
+    user-select: none;
 }
 
 .album-container {
@@ -284,6 +294,22 @@ form {
     padding: 20px;
     max-width: 220px;
     display: table-cell;
+}
+
+h3.artist-name {
+    padding-bottom: 24px;
+    text-align: left;
+    font-size: 20px;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+h3.artist-name a {
+    color: inherit;
+    transition: 300ms;
+}
+h3.artist-name a:hover {
+    color: var(--st-color);
 }
 
 .album-info {
@@ -327,6 +353,23 @@ a .track:hover {
     transform: scale(110%);
     font-weight: bold;
     background-color: #0007;
+}
+
+.songlist {
+    text-align: justify;
+}
+
+.songlist a + a {
+    margin: 0 10px;
+}
+
+.sl-name {
+    transition: 300ms;
+    color: var(--st-color);
+}
+
+.sl-name:hover {
+    color: #fff;
 }
 
 /* r e s p o n s i v e */

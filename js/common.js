@@ -5,7 +5,7 @@ $(document).ready(function() {
         };
     };
 
-    var ver = "BETA v0.2311";
+    var ver = "BETA v0.2.231203";
 
     $("body").append('<span id="version">' + ver + '</span>')
 });
