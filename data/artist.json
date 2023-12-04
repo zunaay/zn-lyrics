@@ -8,5 +8,7 @@
     {"date":"20070514", "id":"LP", "name":"Linkin Park", "album":"Minutes to Midnight", "cover":"https://i.scdn.co/image/ab67616d0000b2736e996745f2c7b8036abef213"},
     {"date":"20060613", "id":"TDG", "name":"Three Days Grace", "album":"One-X", "cover":"https://i.scdn.co/image/ab67616d0000b2739dcf31d6b5eb82fa24de783a"},
     {"date":"20040608", "id":"MCR", "name":"My Chemical Romance", "album":"Three Cheers for Sweet Revenge", "cover":"https://i.scdn.co/image/ab67616d0000b273cab7ae4868e9f9ce6bdfdf43"},
-    {"date":"20030622", "id":"TDG", "name":"Three Days Grace", "album":"Three Days Grace", "cover":"https://i.scdn.co/image/ab67616d0000b27377922eaa071fb388270f203f"}
+    {"date":"20030622", "id":"TDG", "name":"Three Days Grace", "album":"Three Days Grace", "cover":"https://i.scdn.co/image/ab67616d0000b27377922eaa071fb388270f203f"},
+    {"date":"20030325", "id":"LP", "name":"Linkin Park", "album":"Meteora", "cover":"https://i.scdn.co/image/ab67616d0000b273b4ad7ebaf4575f120eb3f193"},
+    {"date":"20001024", "id":"LP", "name":"Linkin Park", "album":"Hybrid Theory", "cover":"https://i.scdn.co/image/ab67616d0000b2736741ca6e9ba6fdc166037321"}
 ]
