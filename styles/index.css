@@ -360,8 +360,11 @@ a .track:hover {
     text-align: justify;
 }
 
-.songlist a + a {
-    margin: 0 10px;
+.songlist a {
+    display: inline-block;
+    margin: 5px 5px;
+    border: 1px solid;
+    padding: 5px 20px;
 }
 
 .sl-name {
