@@ -273,6 +273,7 @@ form {
     top: 70px;
     position: relative;
     display: block;
+    padding: 0 0 60px;
 }
 
 .artist-container {

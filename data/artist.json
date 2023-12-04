@@ -6,6 +6,7 @@
     {"date":"20150715", "id":"STA", "name":"Saint Asonia", "album":"Saint Asonia", "cover":"https://i.scdn.co/image/ab67616d0000b273f46aee5405694e957804003f"},
     {"date":"20071030", "id":"A7X", "name":"Avenged Sevenfold", "album":"Avenged Sevenfold", "cover":"https://i.scdn.co/image/ab67616d0000b27333c52ca8309741c6999ca742"},
     {"date":"20070514", "id":"LP", "name":"Linkin Park", "album":"Minutes to Midnight", "cover":"https://i.scdn.co/image/ab67616d0000b2736e996745f2c7b8036abef213"},
+    {"date":"20060613", "id":"TDG", "name":"Three Days Grace", "album":"One-X", "cover":"https://i.scdn.co/image/ab67616d0000b2739dcf31d6b5eb82fa24de783a"},
     {"date":"20040608", "id":"MCR", "name":"My Chemical Romance", "album":"Three Cheers for Sweet Revenge", "cover":"https://i.scdn.co/image/ab67616d0000b273cab7ae4868e9f9ce6bdfdf43"},
     {"date":"20030622", "id":"TDG", "name":"Three Days Grace", "album":"Three Days Grace", "cover":"https://i.scdn.co/image/ab67616d0000b27377922eaa071fb388270f203f"}
 ]
