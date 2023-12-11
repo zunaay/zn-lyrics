@@ -20,7 +20,7 @@ function getRandomSong(song) {
 };
 
 function isAvailable(s, db) {
-    if (db[s].src != "") return true;
+    if ((db[s].src.includes(".txt"))) return true;
     return false;
 
     /* LOCAL ASYNC

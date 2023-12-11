@@ -55,7 +55,13 @@ function drawContent(q, artist, song) {
 
         var listedArtists = "", albumN = 0;
         for (i = 0; i < artist.length; i++) {
+
+            // Comprobar si el artista está en la lista
             if (!listedArtists.includes(artist[i].name)) {
+
+                // Comprobar si el album está completo, sino skipear
+                if (artist[i].full == false) continue;
+
                 listedArtists += artist[i].name; // Añadir artista a la lista
 
                 let artista = artist[i].name;
@@ -106,7 +112,7 @@ function drawContent(q, artist, song) {
             var artistID = artist.filter(v => {return v.name == artistArray[a]})[0].id;
 
             // Obtener y ordenar canciones disponibles
-            var track = song.filter(v => {return v.src != "" && (v.id).split("-")[0] == artistID});
+            var track = song.filter(v => {return (v.src).includes(".txt") && (v.id).split("-")[0] == artistID});
 
             
             if (track.length > 0) {
@@ -185,7 +191,7 @@ function drawTracklist(tracklist, base, i) {
         let src = tracklist[t].src;
 
         // Comprobar si el archivo existe 
-        if (src != "") {
+        if (src.includes(".txt")) {
             // Existe
             enlace += '?a=' + src.split("_")[0].replace("data/files/", "") + '&s=' + src.split("_")[1].replace(".txt", "");
             $('.tracklist').eq(i).append('<a href="' + enlace + '"><li class="track">' + track + '</li></a>');
