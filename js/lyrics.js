@@ -78,7 +78,7 @@ function showLyrics(a, s, artist, song) {
         // Dibujar todo !
         $("body").css("background-image", "url(" + cover + ")");
 
-        $("title").html(cancion + " - " + artista + " | j u s t • l y r i c s");
+        $("title").html(cancion + " - " + artista + " | z n • l y r i c s");
         $("#cover-container img").attr("src", cover);
         $("#info-container .track-info").eq(0).append(cancion);
         $("#info-container .track-info").eq(1).append('<a href="' + goSearch + "?artist=" + (tempArtist[0].id).toLowerCase() + '">' + artista + '</a>');
