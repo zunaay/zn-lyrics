@@ -1,14 +1,16 @@
 [
-    {"date":"20221118", "id":"STA", "name":"Saint Asonia", "album":"Extrovert", "cover":"https://i.scdn.co/image/ab67616d0000b2734873c7f89977583074800eb0"},
-    {"date":"20220107", "id":"STA", "name":"Saint Asonia", "album":"Introvert", "cover":"https://i.scdn.co/image/ab67616d0000b273bc076bcf156b4336517743b3"},
-    {"date":"20200313", "id":"SD", "name":"Self Deception", "album":"Shapes", "cover":"https://i.scdn.co/image/ab67616d0000b27344e0599a7a70f3e0be477e2b"},
-    {"date":"20191025", "id":"STA", "name":"Saint Asonia", "album":"Flawed Design", "cover":"https://i.scdn.co/image/ab67616d0000b2735e53ae063bd0e2fd0455b055"},
-    {"date":"20150715", "id":"STA", "name":"Saint Asonia", "album":"Saint Asonia", "cover":"https://i.scdn.co/image/ab67616d0000b273f46aee5405694e957804003f"},
-    {"date":"20071030", "id":"A7X", "name":"Avenged Sevenfold", "album":"Avenged Sevenfold", "cover":"https://i.scdn.co/image/ab67616d0000b27333c52ca8309741c6999ca742"},
-    {"date":"20070514", "id":"LP", "name":"Linkin Park", "album":"Minutes to Midnight", "cover":"https://i.scdn.co/image/ab67616d0000b2736e996745f2c7b8036abef213"},
-    {"date":"20060613", "id":"TDG", "name":"Three Days Grace", "album":"One-X", "cover":"https://i.scdn.co/image/ab67616d0000b2739dcf31d6b5eb82fa24de783a"},
-    {"date":"20040608", "id":"MCR", "name":"My Chemical Romance", "album":"Three Cheers for Sweet Revenge", "cover":"https://i.scdn.co/image/ab67616d0000b273cab7ae4868e9f9ce6bdfdf43"},
-    {"date":"20030622", "id":"TDG", "name":"Three Days Grace", "album":"Three Days Grace", "cover":"https://i.scdn.co/image/ab67616d0000b27377922eaa071fb388270f203f"},
-    {"date":"20030325", "id":"LP", "name":"Linkin Park", "album":"Meteora", "cover":"https://i.scdn.co/image/ab67616d0000b273b4ad7ebaf4575f120eb3f193"},
-    {"date":"20001024", "id":"LP", "name":"Linkin Park", "album":"Hybrid Theory", "cover":"https://i.scdn.co/image/ab67616d0000b2736741ca6e9ba6fdc166037321"}
+    {"date":"20221118", "id":"STA", "name":"Saint Asonia", "album":"Extrovert", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b2734873c7f89977583074800eb0"},
+    {"date":"20220107", "id":"STA", "name":"Saint Asonia", "album":"Introvert", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b273bc076bcf156b4336517743b3"},
+    {"date":"20200313", "id":"SD", "name":"Self Deception", "album":"Shapes", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b27344e0599a7a70f3e0be477e2b"},
+    {"date":"20191025", "id":"STA", "name":"Saint Asonia", "album":"Flawed Design", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b2735e53ae063bd0e2fd0455b055"},
+    {"date":"20150715", "id":"STA", "name":"Saint Asonia", "album":"Saint Asonia", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b273f46aee5405694e957804003f"},
+    {"date":"20120717", "id":"PTV", "name":"Pierce The Veil", "album":"Collide With The Sky", "full":false, "cover":"https://i.scdn.co/image/ab67616d0000b273077cac00c2d9075e6f742570"},
+    {"date":"20090922", "id":"3DG", "name":"Three Days Grace", "album":"Life Starts Now", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b273bf55e4d8d4120679b13394af"},
+    {"date":"20071030", "id":"A7X", "name":"Avenged Sevenfold", "album":"Avenged Sevenfold", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b27333c52ca8309741c6999ca742"},
+    {"date":"20070514", "id":"LP", "name":"Linkin Park", "album":"Minutes to Midnight", "full":false, "cover":"https://i.scdn.co/image/ab67616d0000b2736e996745f2c7b8036abef213"},
+    {"date":"20060613", "id":"3DG", "name":"Three Days Grace", "album":"One-X", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b2739dcf31d6b5eb82fa24de783a"},
+    {"date":"20040608", "id":"MCR", "name":"My Chemical Romance", "album":"Three Cheers for Sweet Revenge", "full":false, "cover":"https://i.scdn.co/image/ab67616d0000b273cab7ae4868e9f9ce6bdfdf43"},
+    {"date":"20030622", "id":"3DG", "name":"Three Days Grace", "album":"Three Days Grace", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b27377922eaa071fb388270f203f"},
+    {"date":"20030325", "id":"LP", "name":"Linkin Park", "album":"Meteora", "full":false, "cover":"https://i.scdn.co/image/ab67616d0000b273b4ad7ebaf4575f120eb3f193"},
+    {"date":"20001024", "id":"LP", "name":"Linkin Park", "album":"Hybrid Theory", "full":false, "cover":"https://i.scdn.co/image/ab67616d0000b2736741ca6e9ba6fdc166037321"}
 ]
