@@ -5,7 +5,11 @@ $(document).ready(function() {
         };
     };
 
-    var ver = "BETA v0.2.231211";
+    var ver = "BETA v0.3.240310";
 
     $("body").append('<span id="version">' + ver + '</span>')
 });
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min; // incluye min pero no max
+}

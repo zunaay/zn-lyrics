@@ -5,6 +5,12 @@
     --st-color: rgb(229, 89, 152);
     --nd-color: rgb(0, 0, 0);
 }
+
+::-moz-selection, ::selection {
+    background-color: var(--st-color);
+    color: var(--nd-color);
+}
+
 /* ---  Body Scrollbar ---  */
 
 ::-webkit-scrollbar {width:7px;background-color: var(--nd-color);}
@@ -174,6 +180,10 @@ form {
     top: 80px;
 }
 
+#left-panel {
+    position: fixed;
+}
+
 #general-info, #main-lyrics {
     margin: 10px;
 }
@@ -204,7 +214,7 @@ form {
 
 #general-info {
     width: 410px;
-    position: fixed;
+    /*position: fixed;*/
     display: block;
     transform: translateX(0);
 }
@@ -254,6 +264,53 @@ form {
     color: var(--st-color);
 }
 
+#album-navigation {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.albumnav-buttons {
+    width: 40%;
+    display: inline-block;
+    text-align: center;
+}
+
+.albumnav-buttons .button {
+    background-color: var(--st-color);
+    color: var(--nd-color);
+    padding: 5px 14px;
+    margin: 0 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    width: 140px;
+    display: table;
+    cursor: pointer;
+    user-select: none;
+}
+
+.albumnav-buttons .button.disabled {
+    background-color: #808080;
+    cursor: default;
+}
+
+.button.prev-song::after {
+    content: 'Anterior';
+}
+
+.button.prev-song i {
+    text-align: left;
+    display: table-cell;
+}
+
+.button.next-song::before {
+    content: 'Siguiente';
+}
+
+.button.next-song i {
+    text-align: right;
+    display: table-cell;
+}
+
 #main-lyrics {
     left: 440px;
     position: relative;
@@ -282,6 +339,20 @@ form {
 
 .artist-title {
     font-size: 30px;
+}
+
+.artist-discography {
+    position: relative;
+    margin-top: -25px;
+    margin-bottom: 20px;
+}
+
+.artist-discography a {
+    color: var(--st-color);
+}
+
+.artist-discography a:hover {
+    color: #fff;
 }
 
 .album-carousel {
@@ -417,8 +488,54 @@ a .track:hover {
     }
 
     /* mobile lyrics */
+    #left-panel {
+        z-index: 2;
+    }
+
     #general-info {
         width: 30%;
+        position: fixed;
+    }
+
+    #album-navigation {
+        text-align: left;
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: table;
+    }
+
+    .button.prev-song::after, .button.next-song::before {
+        content: '';
+    }
+
+    .albumnav-buttons {
+        display: table-cell;
+        vertical-align: middle;
+    }
+
+    .albumnav-buttons .button {
+        width: auto;
+        font-size: 20px;
+        padding: 10px 20px;
+        margin: 0;
+    }
+
+    .button.prev-song {
+        left: -10px;
+        position: absolute;
+        padding-right: 14px;
+    }
+
+    .button.next-song {
+        right: -10px;
+        position: absolute;
+        padding-left: 14px;
     }
 
     #main-lyrics {
@@ -429,6 +546,7 @@ a .track:hover {
 
     #main-lyrics pre {
         white-space: break-spaces;
+        z-index: 1;
     }
 
     #cover-container {
@@ -456,14 +574,16 @@ a .track:hover {
         min-width: 100%;
     }
 
-    /* mobile lyrics */ 
+    /* mobile lyrics */
+    #left-panel {
+        z-index: 102;
+    }
     #general-info {
         min-width: 80%;
         left: 10px;
         right: 10px;
         display: block;
         background-color: #000d;
-        z-index: 102;
         border: 1px solid;
         box-shadow: 0px 0px 10px #fff;
         padding: 0 50px 10px;
@@ -473,7 +593,6 @@ a .track:hover {
         max-height: 300px;
         bottom: 30px;
         top: 30px;
-
         transform: translateX(-150%);
         transition: 700ms;
     }

@@ -1,7 +1,6 @@
 $(document).ready(function() {
     $.get("data/artist.json", artist => {
         $.get("data/music.json", song => {
-            $("body").css("background-image", "url(" + artist[0].cover + ")");
             var filtro = checkSearch(window.location.search, artist);
             drawContent(filtro, artist, song);
         });
@@ -48,6 +47,7 @@ function drawContent(q, artist, song) {
     
     if (q == "general") {
         // Overview
+        $("body").css("background-image", "url(" + artist[0].cover + ")");
         $("#main-container").append('<div class="artist-container"></div>');
         $(".artist-container")
             .append('<h2 class="artist-title">Últimos lanzamientos</h2>')
@@ -99,7 +99,7 @@ function drawContent(q, artist, song) {
     
     } else if (q == "songlist") {
         // Lista de canciones
-        $("body").css("background-image", "url(" + artist[0].cover + ")"); // Custom bg
+        $("body").css("background-image", "url(" + artist[getRandomInt(0, artist.length)].cover + ")"); // Custom bg
         
         // Obtener y ordenar artistas
         var artistArray = [];
@@ -127,13 +127,15 @@ function drawContent(q, artist, song) {
                 $("#main-container").append('<div class="artist-container"></div>');
                 $(".artist-container").eq(d)
                 .append('<h2 class="artist-title">' + artistArray[a] + '</h2>')
+                .append('<div class="artist-discography">( <a href="' + (window.location.href).replace(window.location.search, "") + '?artist=' + artistID.toLowerCase() + '">ver discografía</a> )</div>')
                 .append('<div class="songlist"></div>');
 
                 for (s = 0; s < track.length; s++) {
                     var trackArtist = track[s].id.split("-")[0];
                    
                     if (trackArtist == artistID) {
-                        var href = "?a=" + artistID.toLowerCase() + "&s=" + (track[s].src).split("_")[1].replace(".txt", "");
+                        // var href = "?a=" + artistID.toLowerCase() + "&s=" + (track[s].src).split("_")[1].replace(".txt", ""); // OLD
+                        var href = "?s=" + (track[s].id).toLowerCase();
                         var enlace = base.replace("search", "lyrics") + href;
     
                         $(".songlist").eq(d).append('<a class="sl-name" href="' + enlace +'"><span> ' + track[s].name + ' </span></a>');
@@ -193,7 +195,8 @@ function drawTracklist(tracklist, base, i) {
         // Comprobar si el archivo existe 
         if (src.includes(".txt")) {
             // Existe
-            enlace += '?a=' + src.split("_")[0].replace("data/files/", "") + '&s=' + src.split("_")[1].replace(".txt", "");
+            //enlace += '?a=' + src.split("_")[0].replace("data/files/", "") + '&s=' + src.split("_")[1].replace(".txt", ""); OLD
+            enlace += '?s=' + (tracklist[t].id).toLowerCase(); // NEW
             $('.tracklist').eq(i).append('<a href="' + enlace + '"><li class="track">' + track + '</li></a>');
         } else {
             // No existe
