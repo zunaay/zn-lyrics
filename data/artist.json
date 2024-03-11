@@ -5,7 +5,7 @@
     {"date":"20191025", "id":"STA", "name":"Saint Asonia", "album":"Flawed Design", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b2735e53ae063bd0e2fd0455b055"},
     {"date":"20150715", "id":"STA", "name":"Saint Asonia", "album":"Saint Asonia", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b273f46aee5405694e957804003f"},
     {"date":"20121002", "id":"3DG", "name":"Three Days Grace", "album":"Transit Of Venus", "full":false, "cover":"https://i.scdn.co/image/ab67616d0000b273c735b5e4e94d0bfda1f2727d"},
-    {"date":"20120717", "id":"PTV", "name":"Pierce The Veil", "album":"Collide With The Sky", "full":false, "cover":"https://i.scdn.co/image/ab67616d0000b273077cac00c2d9075e6f742570"},
+    {"date":"20120717", "id":"PTV", "name":"Pierce The Veil", "album":"Collide With The Sky", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b273077cac00c2d9075e6f742570"},
     {"date":"20101122", "id":"MCR", "name":"My Chemical Romance", "album":"Danger Days: The True Lives of the Fabulous Killjoys", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b2736fbf4bb780a9cbc34b3f35da"},
     {"date":"20100621", "id":"PTV", "name":"Pierce The Veil", "album":"Selfish Machines", "full":false, "cover":"https://i.scdn.co/image/ab67616d0000b2733c8674afa47336f571b13ebd"},
     {"date":"20090922", "id":"3DG", "name":"Three Days Grace", "album":"Life Starts Now", "full":true, "cover":"https://i.scdn.co/image/ab67616d0000b273bf55e4d8d4120679b13394af"},
