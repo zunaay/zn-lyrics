@@ -36,13 +36,6 @@ function isAvailable(s, db) {
 };
 
 function makeURL(db, s) {
-    src = db[s].src;
-
-    src = src.replace("data/files/", "");
-    src = src.replace(".txt", "");
-
-    var data = src.split("_");
     var page = (window.location.href).replace("random", "lyrics");
-
-    return page + "?a=" + data[0] + "&s=" + data[1];
+    return page + "?s=" + db[s].id;
 };
