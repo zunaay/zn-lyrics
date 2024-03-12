@@ -55,6 +55,7 @@ function showLyrics(id, artist, song) {
                 var enlace = (window.location.href).replace(window.location.search, "?s=" + prevSong.toLowerCase());
                 $(".prev-song").attr("href", enlace);
                 $(".prev-song").removeClass("disabled");
+                $("#footer .prev-song").removeClass("disabled");
             };
         };
 
@@ -64,17 +65,23 @@ function showLyrics(id, artist, song) {
             var enlace = (window.location.href).replace(window.location.search, "?s=" + nextSong.toLowerCase());
             $(".next-song").attr("href", enlace);
             $(".next-song").removeClass("disabled");
+            $("#footer .next-song").removeClass("disabled");
         };
 
         // Cargar letra
         $.get(s[0].src, function(txt) {
             $("pre").html(txt);
         });
+        
+        // PENDIENTE
+        //if (s[0].yt) printPlayer(s[0].yt);
 
     } catch (error) {
         alert("La canción no existe!");
         window.location.href = (window.location.href).replace("/lyrics", "/search");
     };
+
+    
 };
 
 function getPrevNext(currentID) {
@@ -91,22 +98,26 @@ function getPrevNext(currentID) {
     return [p, n];
 };
 
+function printPlayer(ytID) {
+    $('#video-player').append(`<iframe width="auto" height="auto" src="https://www.youtube.com/embed/${ytID}" frameborder="0"></iframe>`)
+}
+
 $(function() {
-    $("#show-info").click(function() {
+    $(".show-info").click(function() {
         var clase = $(this).attr("class");
-        if (clase == "disabled") {
+        if (clase.includes("off")) {
             // habilitar
-            $("#show-info i").css("transform", "rotate(360deg)");
-            $(this).attr("class", "enabled");
+            clase = clase.replace(" off", " on");
             $("#general-info").css("transform", "translateX(0)");
             $("body").css("overflow", "hidden");
+            $(this).attr("class", clase);
 
         } else {
             // deshabilitar
-            $("#show-info i").css("transform", "rotate(45deg)");
-            $(this).attr("class", "disabled");
+            clase = clase.replace(" on", " off");
             $("#general-info").css("transform", "translateX(-150%)");
             $("body").css("overflow", "auto");
+            $(this).attr("class", clase);
         };
     });
 

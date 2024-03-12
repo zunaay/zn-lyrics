@@ -52,6 +52,8 @@ function drawContent(q, artist, song) {
         $(".artist-container")
             .append('<h2 class="artist-title">Últimos lanzamientos</h2>')
             .append('<div class="album-carousel"></div>');
+        $('.album-carousel').append('<div class="carousel-container"><div>');
+            
 
         var listedArtists = "", albumN = 0;
         for (i = 0; i < artist.length; i++) {
@@ -70,7 +72,7 @@ function drawContent(q, artist, song) {
                 let cover = artist[i].cover;
                 let anio = (artist[i].date).slice(0,4);
 
-                $('.album-carousel').append('<div class="album-container"></div>');
+                $('.carousel-container').append('<div class="album-container"></div>');
                     
                 $('.album-container').eq(albumN)
                     .append('<h3 class="artist-name"></h3>')
@@ -166,7 +168,7 @@ function drawContent(q, artist, song) {
             let album = artista[a].album;
             let anio = (artista[a].date).slice(0,4);
 
-            $('.album-carousel').append('<div class="album-container"><div>')
+            $('.album-carousel').append('<div class="album-container"></div>');
             $('.album-container').eq(a)
                 .append('<div class="album-info"></div>')
                 .append('<ul class="tracklist"></ul>');
