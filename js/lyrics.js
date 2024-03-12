@@ -74,7 +74,7 @@ function showLyrics(id, artist, song) {
         });
         
         // PENDIENTE
-        //if (s[0].yt) printPlayer(s[0].yt);
+        if (s[0].yt) printPlayer(s[0].yt);
 
     } catch (error) {
         alert("La canción no existe!");
@@ -99,6 +99,7 @@ function getPrevNext(currentID) {
 };
 
 function printPlayer(ytID) {
+    $(".show-video").removeClass("unavailable");
     $('#video-player').append(`<iframe width="auto" height="auto" src="https://www.youtube.com/embed/${ytID}" frameborder="0"></iframe>`)
 }
 
@@ -121,11 +122,29 @@ $(function() {
         };
     });
 
+    $(".show-video").click(function() {
+        var clase = $(this).attr("class");
+        if (clase.includes("off")) {
+            // habilitar
+            clase = clase.replace(" off", " on");
+            $("#video-player").css("display", "flex").hide().fadeIn(200);
+            $("body").css("overflow", "hidden");
+            $(this).attr("class", clase);
+
+        } else {
+            // deshabilitar
+            clase = clase.replace(" on", " off");
+
+            $("#video-player").fadeOut(200);
+            $("body").css("overflow", "auto");
+            $(this).attr("class", clase);
+        };
+    });
+
     $(window).resize(function() {
         var ancho = $(this).width();
-        if (ancho > 640) {
-            $("#general-info").removeAttr("style");
-        }
+        if (ancho > 640) $("#general-info").removeAttr("style");
+        if (ancho > 830) $("#video-player").removeAttr("style");
     });
 
 });

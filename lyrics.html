@@ -17,20 +17,21 @@
             <a href="index">
                 <h1>z n • l y r i c s</h1>
             </a>
+                
+            <div id="nav">
+                <ul>
+                    <a href="index"><li id="home">HOME</li></a>
+                    <a href="search"><li id="list">Archivos</li></a>
+                    <a href="random"><li id="random">RANDOM</li></a>
+                </ul>
+                <form onsubmit="return false;">
+                    <input id="search-input" type="text" value="" placeholder="Buscar...">
+                    <input id="search-btn" type="submit" value="">
+                </form>
+            </div>
+
         </div>
         
-        <div id="nav">
-            <ul>
-                <a href="index"><li id="home">HOME</li></a>
-                <a href="search"><li id="list">Archivos</li></a>
-                <a href="random"><li id="random">RANDOM</li></a>
-            </ul>
-            <form onsubmit="return false;">
-                <input id="search-input" type="text" value="" placeholder="Buscar...">
-                <input id="search-btn" type="submit" value="">
-            </form>
-        </div>
-
         <div id="lyrics-container">
             <div id="left-panel">
                 <div id="general-info">
@@ -53,8 +54,7 @@
                         <a class="button next-song disabled"><i class="fa-solid fa-angle-right"></i></a>
                     </div>
                 </div>
-                <!--<div id="show-video" class="button">REPRODUCIR</div>-->
-                <!--<div id="video-player"></div>-->
+                <div id="video-player"></div>
             </div>
             
             <div id="main-lyrics">
@@ -66,7 +66,7 @@
         <div id="footer-menu">
             <a class="button prev-song disabled"><i class="fa-solid fa-angle-left"></i></a>
             <a class="button show-info off"><i class="fa-solid fa-circle-info"></i></a>
-            <a class="button show-video"><i class="fa-solid fa-film"></i></a>
+            <a class="button show-video unavailable off"><i class="fa-solid fa-film"></i></a>
             <a class="button next-song disabled"><i class="fa-solid fa-angle-right"></i></a>
         </div>
     </div>

@@ -292,10 +292,6 @@ form {
     display: table-cell;
 }
 
-#show-video {
-    display: none !important;
-}
-
 #main-lyrics {
     left: 440px;
     position: relative;
@@ -344,6 +340,9 @@ form {
     color: var(--nd-color);
 }
 
+#footer-menu .show-video.unavailable {
+    display: none;
+}
 
 #footer-menu .button.disabled, #footer-menu .button.disabled:hover {
     color: #ddd;
@@ -529,6 +528,7 @@ a .track:hover {
 
     #header {
         height: 125px;
+        z-index: 1;
     }
 
     #header h1 {
@@ -575,17 +575,12 @@ a .track:hover {
     #video-player iframe {
         margin: auto;
         position: relative;
+        width: 90%;
+        height: 60%;
     }
 
     #album-navigation {
         display: none;
-    }
-
-    #show-video {
-        display: block !important;
-        position: relative;
-        text-align: center;
-        top: 400px !important;
     }
 
     #main-lyrics {
@@ -605,10 +600,13 @@ a .track:hover {
 
     #footer-menu {
         display: flex;
+        z-index: 102;
     }
-    #footer-menu .show-info, #footer-menu .show-video {
+
+    #footer-menu .show-info {
         display: none;
     }
+
     .lyrics-page #version {
         bottom: 50px;
     }
